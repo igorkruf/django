@@ -1,0 +1,420 @@
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/glob-import-loader/index.js!./src/scripts_styles/styles/_forms.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url("/static/public/fonts/Rubik-Bold.woff");
+}
+@font-face {
+  font-family: "Rubik-BoldItalic";
+  src: url("/static/public/fonts/Rubik-BoldItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Italic";
+  src: url("/static/public/fonts/Rubik-Italic.woff");
+}
+@font-face {
+  font-family: "Rubik-Light";
+  src: url("/static/public/fonts/Rubik-Light.woff");
+}
+@font-face {
+  font-family: "Rubik-LightItalic";
+  src: url("/static/public/fonts/Rubik-LightItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url("/static/public/fonts/Rubik-Regular.woff");
+}
+.form__label {
+  color: #feee0a;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 90%;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.375);
+}
+
+.form__wrapper {
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  background-color: #6b8d6a;
+}
+.form__wrapper p {
+  padding: 0px 12px;
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  justify-items: flex-start;
+  align-items: center;
+}
+.form__wrapper button {
+  padding: 6px 12px;
+  margin: 12px 12px;
+}
+.form__wrapper .input {
+  width: 100%;
+  padding: 6px 12px;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/glob-import-loader/index.js!./src/scripts_styles/styles/_header_anonimmenu.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url("/static/public/fonts/Rubik-Bold.woff");
+}
+@font-face {
+  font-family: "Rubik-BoldItalic";
+  src: url("/static/public/fonts/Rubik-BoldItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Italic";
+  src: url("/static/public/fonts/Rubik-Italic.woff");
+}
+@font-face {
+  font-family: "Rubik-Light";
+  src: url("/static/public/fonts/Rubik-Light.woff");
+}
+@font-face {
+  font-family: "Rubik-LightItalic";
+  src: url("/static/public/fonts/Rubik-LightItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url("/static/public/fonts/Rubik-Regular.woff");
+}
+.header__anonimmenu {
+  display: flex;
+  flex-direction: column;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/glob-import-loader/index.js!./src/scripts_styles/styles/_header_usermenu.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url("/static/public/fonts/Rubik-Bold.woff");
+}
+@font-face {
+  font-family: "Rubik-BoldItalic";
+  src: url("/static/public/fonts/Rubik-BoldItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Italic";
+  src: url("/static/public/fonts/Rubik-Italic.woff");
+}
+@font-face {
+  font-family: "Rubik-Light";
+  src: url("/static/public/fonts/Rubik-Light.woff");
+}
+@font-face {
+  font-family: "Rubik-LightItalic";
+  src: url("/static/public/fonts/Rubik-LightItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url("/static/public/fonts/Rubik-Regular.woff");
+}
+.header__usermenu__wrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__usermenu__nav {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  bottom: 0px;
+  width: 100%;
+  z-index: 9;
+  background-color: #ebebeb;
+  overflow-y: auto;
+  transition: bottom 0.5s ease-in;
+  height: calc(100vh - 100px);
+  padding: 24px 0px;
+}
+.header__usermenu__nav ul {
+  list-style-type: none;
+}
+
+.header__usermenu__nav__item a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: #000000;
+}
+.header__usermenu__nav__item a:hover {
+  background-color: #d8d8d8;
+}
+
+.header__usermenu__nav_open {
+  bottom: calc(-100vh + 100px);
+}
+
+.header__usermenu__nav__footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  height: 50px;
+  justify-items: center;
+}
+.header__usermenu__nav__footer::before {
+  position: absolute;
+  left: 5%;
+  top: -10px;
+  content: "";
+  width: 90%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.header__usermenu__nav__footer a {
+  padding: 0 12px;
+  display: flex;
+  padding-right: 50px;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  flex-grow: 1;
+}
+.header__usermenu__nav__footer a::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  height: 26px;
+  width: 26px;
+  background-image: url("/static/public/img/output1.svg");
+  background-size: contain;
+}
+
+.up_down {
+  height: 26px;
+  width: 26px;
+  background-image: url("/static/users/img/arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.5s linear;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.open {
+  transform: rotateX(180deg);
+}
+
+.header__usermenu__head {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  z-index: 100;
+  padding: 0 12px;
+  background-color: #b9b9b9;
+  margin-top: auto;
+}
+.header__usermenu__head a {
+  width: 100%;
+  padding: 0 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  flex-grow: 1;
+}
+.header__usermenu__head a::after {
+  content: "";
+  height: 26px;
+  width: 26px;
+  background-image: url("/static/users/img/input.svg");
+  background-size: cover;
+}
+
+.header__anonimmenu {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.header__anonimmenu a {
+  padding: 0 38px;
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: #000;
+}
+.header__anonimmenu a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 26px;
+  width: 26px;
+  background-image: url("/static/users/img/input.svg");
+  background-size: cover;
+}
+
+.header__usermenu__nav__item a.active {
+  color: red;
+}
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/glob-import-loader/index.js!./src/scripts_styles/styles/_popup.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url("/static/public/fonts/Rubik-Bold.woff");
+}
+@font-face {
+  font-family: "Rubik-BoldItalic";
+  src: url("/static/public/fonts/Rubik-BoldItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Italic";
+  src: url("/static/public/fonts/Rubik-Italic.woff");
+}
+@font-face {
+  font-family: "Rubik-Light";
+  src: url("/static/public/fonts/Rubik-Light.woff");
+}
+@font-face {
+  font-family: "Rubik-LightItalic";
+  src: url("/static/public/fonts/Rubik-LightItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url("/static/public/fonts/Rubik-Regular.woff");
+}
+.popup__wrap {
+  display: none;
+  justify-items: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  border: 5px solid green;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup__wrap_visible {
+  display: grid;
+}
+
+.popup {
+  width: 90%;
+  max-width: 500px;
+  min-height: 50%;
+  max-height: 90%;
+  background-color: #fff;
+}
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/glob-import-loader/index.js!./src/scripts_styles/styles/style.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url("/static/public/fonts/Rubik-Bold.woff");
+}
+@font-face {
+  font-family: "Rubik-BoldItalic";
+  src: url("/static/public/fonts/Rubik-BoldItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Italic";
+  src: url("/static/public/fonts/Rubik-Italic.woff");
+}
+@font-face {
+  font-family: "Rubik-Light";
+  src: url("/static/public/fonts/Rubik-Light.woff");
+}
+@font-face {
+  font-family: "Rubik-LightItalic";
+  src: url("/static/public/fonts/Rubik-LightItalic.woff");
+}
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url("/static/public/fonts/Rubik-Regular.woff");
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Rubik-Regular";
+}
+
+.header {
+  position: relative;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #bebebe;
+}
+
+.header__container {
+  display: grid;
+  grid-template-columns: 100px 1fr 300px;
+  height: 100px;
+}
+
+.main {
+  display: grid;
+  flex-grow: 1;
+}
+
+.footer {
+  position: relative;
+  height: 150px;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #bebebe;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main__container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+}
+
+.main__content {
+  padding: 24px 12px;
+}
+
+.main__aside_right {
+  position: relative;
+  padding: 24px 12px;
+}
+.main__aside_right::before {
+  content: "";
+  height: 100%;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.3137254902);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*# sourceMappingURL=main.css.map*/

@@ -1,0 +1,22 @@
+
+{% for menu_list_item in user_menu %}
+
+<li class="header__usermenu__nav__item">
+  <a class="user_menu_link" href="{% url menu_list_item.url %}">{{menu_list_item.name}}</a>
+</li>
+
+{% endfor %}
+<script>
+  let listLink = document.querySelectorAll(".header__usermenu__nav__item");
+
+  console.log(listLink);
+  listLink.forEach((itemLink) => {
+    let a = itemLink.querySelector(".user_menu_link");
+
+    if (a.getAttribute("href") == document.location.pathname) {
+      a.classList.add("active");
+    } else {
+      a.classList.remove("active");
+    }
+  });
+</script>

@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block main %}
+<h1>Форма профиля </h1>
+
+<form class="form"  method="post">
+   <div class="form__wrapper">
+{% csrf_token %} 
+{% for  f in user_profile_form %}
+<p><label class="form__label" for="{{f.id_for_label}}">{{f.label}}</label>{{f}}</p>
+    <div class="form__error">{{f.errors}}</div>
+{% endfor%}
+
+<button type="submit">Сохранить изменения</button>
+</div>
+</form> 
+
+{%endblock main%}

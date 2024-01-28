@@ -1,0 +1,43 @@
+@import "_global_vars";
+.post {
+  position: relative;
+  border: 1px solid red;
+}
+.post__menu__wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid red;
+}
+.post__title {
+  display: flex;
+  border: 1px solid blue;
+  margin-bottom: 20px;
+}
+.post__menu {
+  display: flex;
+  list-style-type: none;
+  column-gap: 12px;
+  border: 1px solid red;
+  margin-left: auto;
+}
+.post__menu__item {
+  //   border: 1px solid green;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: $box-shadow;
+
+  &:active {
+    box-shadow: $box-shadow-down;
+  }
+}
+.del_post {
+  background-image: url("/static/posts/img/del.svg");
+  background-size: contain;
+}
+.edit_post {
+  background-image: url("/static/posts/img/edit.svg");
+  background-size: contain;
+}

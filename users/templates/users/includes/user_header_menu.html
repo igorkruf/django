@@ -1,0 +1,16 @@
+{% load public_tags %}
+<div class="header__usermenu__wrap">
+    <div class="header__usermenu__head">
+      <div>{{user.first_name}}&nbsp;{{user.last_name}}</div><div class="up_down"></div>
+    </div>
+    <div class="header__usermenu__nav ">
+      <ul >
+        {% show_user_menu %}
+      </ul>
+    <div class="header__usermenu__nav__footer">
+      <a  href="{% url "users:logout_users"%}"><span>Выход</span></a>
+   </div>
+  </div>
+  
+
+  </div>

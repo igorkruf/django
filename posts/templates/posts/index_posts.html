@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% load sass_tags %}
+{% load posts_tags %}
+{% block style %}
+<link rel="stylesheet" href='{% sass_src "posts/styles/style.scss" %}'/>
+{% endblock style %}
+{% block title %}
+{{user.first_name}}, ваши посты
+{% endblock title %}
+{% block main %}
+
+<h1>Мои посты</h1>
+
+{% for post in list_posts_by_user %}
+<div class="post" data-post_id="{{post.id}}">
+  <div class="post__title">
+    <span>{{post.title}}</span>
+    <ul class="post__menu">
+      {% get_post_menu as post_menu%} {%for post_menu_item in post_menu%}
+      <li class="post__menu__item {{post_menu_item.slug}}">
+        <a class="post__menu__item__link"></a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <div class="post__content">{{post.content| filter_first_my134}}</div>
+</div>
+
+{% endfor %}
+<div class="tooltip">
+  <div class="tooltip_message"></div>
+</div>
+<script>
+  let listPostsByUser = document.querySelectorAll(".post");
+  listPostsByUser.forEach((post) => {
+    post.addEventListener("click", async function (e) {
+      if (e.target.classList.contains('del_post')){
+        let response= await fetch(`${post.dataset.post_id}/del/`);
+        let result=await response.json();
+        console.log(result);
+      }
+
+    });
+  });
+</script>
+{%endblock main%} {% block aside_right%}
+<h1>Меню постов</h1>
+{% endblock aside_right %}

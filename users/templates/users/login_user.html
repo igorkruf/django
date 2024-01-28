@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block main %}
+<h1>Вход </h1>
+{{form_login_users.non_field_errors}}
+<form class="form"  method="post">
+   <div class="form__wrapper">
+{% csrf_token %} 
+{% for  f in form_login_users %}
+<p><label class="form__label" for="{{f.id_for_label}}">{{f.label}}</label>{{f}}</p>
+    <div class="form__error">{{f.errors}}</div>
+{% endfor%}
+<button type="submit">Войти</button>
+</div>
+</form> 
+
+{%endblock main%}

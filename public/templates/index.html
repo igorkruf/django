@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %} 
+{% comment %} {% load sass_tags %} {% endcomment %}
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Главный заголовок{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'public/datepicker.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'scripts_style/main.css' %}"/> 
+   
+    {% block style %}
+    {% endblock %}
+    {% comment %} <script type="module" src="{% static 'public/datepicker.min.js'  %}" defer ></script> {% endcomment %}
+    <script type="module" src="{% static 'scripts_style/main.js'  %}" defer ></script>
+    
+
+     
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <div class="border header__menu__wrap">menu</div>
+        <div class="header__title">header Главной страницы {{req.get_full_path}}</div>
+        <div class="border header__usermenu">
+          {% block header__usermenu %}
+          
+          {% if user.is_authenticated %}
+          
+          {% include "users/includes/user_header_menu.html" %}
+          
+          {% else%}
+          
+          {% include "users/includes/anonim_header_menu.html" %}
+          
+          {% endif%}
+          
+          {% endblock header__usermenu %}
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      
+      <div class="container main__container">
+        <section class="border main__content">
+          {% block main %}{{content|safe}}{% endblock main %}
+        </section>
+        <aside class="border main__aside_right">
+          {% block aside_right %} aside{% endblock aside_right %}
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <script>
+let path= document.URL;
+
+
+      </script>
+      <div class="container footer__container">
+        {% block footer %}
+        <h1>footer Главной страницы</h1>
+        {% endblock footer %}
+      
+      
+      
+      </div>
+    </footer>
+
+    <div class="popup__wrap">
+      <div class="popup">
+        <div class="popup__content">
+
+
+        </div>
+      </div>
+      
+    </div>
+    <script>
+
+    </script>
+  </body>
+</html>

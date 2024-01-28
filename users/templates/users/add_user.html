@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+ {% block main %}
+<h1>Регистрация нового пользователя</h1>
+{{form_add_user.non_field_errors}}
+<form class="form" method="post">
+   <div class="form__wrapper">
+    {% csrf_token %} 
+{% for  f in form_add_user %}
+<p><label class="form__label" for="{{f.id_for_label}}">{{f.label}}</label>{{f}}</p>
+    <div class="form__error">{{f.errors}}</div>
+{% endfor%}
+    
+    
+   
+    <button type="submit">Зарегистрироваться</button>
+
+   </div>
+
+    
+</form>
+
+{%endblock main%}
