@@ -10,20 +10,45 @@ class Post(models.Model):
 
 
     def __str__(self):
-        return f'{self.title}'
+            return f'{self.title}'
     
 
-class TypeProduct(models.Model):
-    name=models.CharField()
-    type_zapchast=models.ManyToManyField('TypeZapchast', through="ListTypeZapchastTypeProduct")
+    # class Storage(models.Model):
+    #     type=models.ForeignKey('Type', on_delete=models.PROTECT)
+        
+        
+    # class Stage(models.Model):
+    #     name=models.CharField(max_length=255)
+        
+        
+    # class Actions(models.Model):
+    #     product=models.ForeignKey('Product', on_delete=models.CASCADE)
+    #     stage=models.ForeignKey('Stage', on_delete=models.PROTECT)
+    #     date=models.DateTimeField()
+    #     user=models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+        
+    # class Product(models.Model):
+    #     stage=models.ForeignKey('Stage', on_delete=models.PROTECT)
+    #     type= models.ForeignKey('Type', on_delete=models.PROTECT)
+        
+        
+class Type(models.Model):
+    name=models.CharField(max_length=255, verbose_name="Название ")
+        
+        
+    def __str__(self):
+        return self.name
+        
+                
+class SetType(models.Model):
+    type_id=models.ForeignKey('Type', on_delete=models.PROTECT, related_name="type_id")
+    part_id=models.ForeignKey('Type',on_delete=models.PROTECT, related_name="part_id")
+    kol_vo=models.PositiveIntegerField()
 
 
-class TypeZapchast(models.Model):
-    name=models.IntegerField()
+    class Meta:
+        unique_together = ['type_id', 'part_id']
+             
 
 
-class ListTypeZapchastTypeProduct(models.Model):
-    type_product=models.ForeignKey('TypeProduct', on_delete=models.CASCADE)
-    type_zapchast=models.ForeignKey('TypeZapchast', on_delete=models.CASCADE)
-    kol_vo=models.IntegerField()
-
+    

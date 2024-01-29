@@ -8,9 +8,15 @@ from django.conf import settings
 from public.functions import set_activ_usermenu_item
 #####################################################
 from django.views import View
-from .forms import AddPosts
+from .forms import AddPosts, SetType
 ######################################################
 from django.contrib.auth.mixins import LoginRequiredMixin
+##########################################################
+import datetime
+from django.forms import formset_factory
+from posts.forms import ArticleForm
+ArticleFormSet = formset_factory(ArticleForm)
+##########################################################
 
 
 # Create your views here.
@@ -65,15 +71,26 @@ class AddPost(LoginRequiredMixin, View):
     
     # login_url="users:login_users"
     def get(self, req, ):
+        formset = ArticleFormSet(
+        # initial=[
+        #          {
+        #              "title": "Django is now open source",
+        #              "pub_date": datetime.date.today(),
+        #          }
+        #      ]
+         )
         data={}
         data['title']="New заголовок"
-        data['form']= AddPosts()         
+        data['form']= AddPosts() 
+        data['formset']=formset        
         return render(req, 'posts/add_posts.html', data)
     
 
     def post(self, req):
+        
         data={}
         form=AddPosts(req.POST)
+        
         if form.is_valid():
             cd=form.cleaned_data
             print(cd)
@@ -86,5 +103,16 @@ class AddPost(LoginRequiredMixin, View):
                 data['form']=form
         else:
             data['form']=AddPosts(req.POST)
-
+        
         return render(req, 'posts/add_posts.html', data)
+    
+
+class AddType(LoginRequiredMixin, View):
+
+    def get(self, req, *args, **kwargs):
+        data={}
+        data['title']="Новый тип"
+        data['form']= SetType() 
+        # data['formset']=formset        
+        return render(req, 'posts/add_type.html', data)
+

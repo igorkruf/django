@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from .models import Post
+from .models import Post, SetType, Type
+from django.forms import formset_factory
 
 
 
@@ -69,3 +70,26 @@ class AddPosts(forms.ModelForm):
 #             "username": "Login",
 #             "password": "Пароль",
 #             }
+
+
+class ArticleForm(forms.Form):
+    title=forms.CharField()
+    pub_date=forms.DateField()
+
+
+class SetType(forms.ModelForm):
+
+
+    class Meta:
+        model=SetType
+        fields=['type_id', 'part_id', 'kol_vo']
+        widgets={
+            "type_id":forms.HiddenInput(),
+            "part_id":forms.Select(attrs={"class":"input"}, choices=Type.objects.all().values('id', 'name')),
+            "kol_vo":forms.NumberInput(attrs={"class":"input"})
+        }
+        labels={
+            "type_id": "",
+            "part_id": "Название комплектующего",
+            "kol_vo": "Колличество"
+        }
