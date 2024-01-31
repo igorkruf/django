@@ -38,3 +38,18 @@
   {% endblock main__content%}
 
 </code>
+<code>
+      let addSetType=document.querySelector('.add_set_type');
+   
+   if (addSetType){
+       let type=addSetType.querySelector("[name='type']");
+       let part=addSetType.querySelector("[name='part']");
+       
+       let selPart=addSetType.querySelector("[name='part1']");
+       selPart.addEventListener("change", function(){
+           type.value=selPart.dataset.type_id;
+           part.value=selPart.value;
+       
+       });
+   }
+</code>
