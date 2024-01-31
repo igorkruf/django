@@ -53,3 +53,25 @@
        });
    }
 </code>
+
+
+
+<code>
+class AddSetTypeForm(forms.ModelForm):
+    kol_vo=forms.IntegerField(min_value=0, widget=forms.NumberInput(attrs={"class":"input", "placeholder":"Введи количество"}), label="Колличество")
+    class Meta:
+        model=SetType
+        fields=['kol_vo', 'type', 'part']
+        widgets={
+            # "kol_vo": forms.NumberInput(attrs={"class":"input"}),
+            "type":forms.HiddenInput(attrs={"class":"hidden_type"}),
+            "part":forms.HiddenInput(attrs={"class":"hidden_part"}),
+        }
+        labels={
+            # "kol_vo": "Кол-во",
+            "type":" ",
+            "part":" ",
+
+        }
+        
+</code>
