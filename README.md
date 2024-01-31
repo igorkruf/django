@@ -1,7 +1,7 @@
 * Нужно получить список типов без исходного
-
+<code>
 QuerySet: colection_types=SetType.objects.exlude(pk=type_id)
-
+</code>
 
 
 * Получаем список типов у которых присутствуют запчасти (part) данного типа
