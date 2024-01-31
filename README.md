@@ -1,3 +1,22 @@
-* Нужно получить список типов у которых в комплектующих нет данного типа
+* Нужно получить список типов без исходного
+
+QuerySet: colection_types=SetType.objects.exlude(pk=type_id)
+
+
+
+* Получаем список типов у которых присутствуют запчасти (part) данного типа
+<code>
+list_dict_collection_types=collection_types.values("type", "part");
+
+for dict_collection_types in list_dict_collection_types:
+
+
+
+
+
+
+</code>
+    
+
 
   
