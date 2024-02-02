@@ -18,7 +18,7 @@ def test_recive(sender, instance, **kwargs):
 
 <code>
     @receiver(pre_save, sender=Car)
-def car_is_saved(sender, instance, **kwargs):
+    def car_is_saved(sender, instance, **kwargs):
     try:
         obj = sender.objects.get(pk=instance.pk)
     except sender.DoesNotExist:
