@@ -34,6 +34,8 @@ def test_recive(sender, instance, **kwargs):
 </code>
 
 
+https://russianblogs.com/article/5984705908/ - listView, detailView, ...
+
 
 
   
