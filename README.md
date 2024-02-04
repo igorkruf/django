@@ -1,4 +1,19 @@
-
+<code>
+    @receiver(pre_save, sender=Product)
+def pre_reciver_product(sender, instance, **kwargs):
+     
+    if  instance.pk :
+        obj=Product.objects.get(pk=instance.id)
+        if instance.stage_id != obj.id:
+            add_to_actions('Изменили состояние')             
+    elif 1==1:
+        @receiver(post_save, sender=Product)
+        def post_reciver_product(sender, instance, **kwargs):
+             add_to_actions(f'добавили:{instance.id}')
+    
+def add_to_actions(str='По умолчанию', ):
+    print(str)
+</code>
 
 
 FIGMA (igor-kruf, igor-kruf@list.ru, Pervil-9)
