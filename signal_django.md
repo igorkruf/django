@@ -17,6 +17,29 @@
                 post_save.connect(save_profile, sender='second.MyModel')
 </code>
 
+<code>
+    def ready(self):
+        
+        from .models import MyModel, Action  # or...
+        # MyModel = self.get_model('MyModel')
+        
+        def presave_profile(sender, instance, **kwargs):
+            print('pre_save')
+            if 1==1:
+                post_save.connect(save_profile, sender='second.MyModel')
+        
+        
+        
+        def save_profile(sender, instance, **kwargs):
+            print('post_save')
+
+
+            Action.objects.create(name_action=instance.name)
+        # registering signals with the model's string label
+        
+        pre_save.connect(presave_profile, sender='second.MyModel')
+</code>
+
 # Это models.py
 <code>
 class MyModel(models.Model):
