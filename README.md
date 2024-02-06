@@ -20,7 +20,20 @@
 }
 </code>
 
+<code>
+    // formData.append('csrfmiddlewaretoken', csrftoken);
+    let response = await fetch('add/',{
+        method:"POST",
+        body:JSON.stringify({"name":"ddddd"}),
+        headers: {
+            'Content-Type': 'application/json',
+                     "X-CSRFToken": csrftoken
+                  },
 
+    })
+
+    
+</code>
 
 
 
