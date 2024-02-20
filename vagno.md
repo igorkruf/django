@@ -7,3 +7,5 @@ https://docs.djangoproject.com/en/4.0/ref/csrf/ - fetch отправка POST ф
 
 
 https://sky.pro/media/kak-rabotat-s-modulem-pathlib-v-python/ - про модуль pathlib
+
+https://youtu.be/km6tGZ3OHvQ?si=dzV0te5cd1hHAszW  - интернет магазин на django
