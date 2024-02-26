@@ -305,3 +305,38 @@ urlpatterns = [
     
 ]
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+class EditType(LoginRequiredMixin, MainPageMixin, View):
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context=super().get_context_data(**kwargs)
+        context['title']="Редактирование типа"
+        return context
+    
+    def get_queryset_available_stages(self, type_id):
+        list_queryset_all_stages= list(Stage.objects.all())
+        list_queryset_exists_stages=list(Type.objects.get(pk=type_id).stages.all())
+        '''вычисляем list id-ишников оставшихся этапов'''
+        list_id_new_stages=[x.id for x in list_queryset_all_stages if x not in list_queryset_exists_stages]
+        queryset_available_stages=Stage.objects.filter(pk__in=list_id_new_stages)
+        return queryset_available_stages
+        
+
+
+
+    def get(self, req, *args, **kwargs):
+        context=self.get_context_data(**kwargs)
+        type_id=kwargs.get('type_id')
+        type=Type.objects.get(pk=type_id)
+        context['type_id']=type_id
+        add_stage_by_type_form=AddStageByTypeForm(initial={'type':type_id})
+        add_stage_by_type_form.fields['stage'].queryset=self.get_queryset_available_stages(type_id)
+       
+        print(list(type.stages.all()))
+       
+        # add_stage_by_type_form.fields['stage'].queryset=Stage.objects.exclude(id__in=type.stages)
+        context['add_stage_by_type_form']=add_stage_by_type_form
+        context['add_part_by_type_form']=AddPartByTypeForm(initial={'type':type_id})
+        return render(req, 'search/edit_type.html', context)
+
+////////////////////////////////////////////////////////////////////////////////
