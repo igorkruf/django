@@ -38,3 +38,5 @@ https://youtu.be/km6tGZ3OHvQ?si=dzV0te5cd1hHAszW  - интернет магаз�
 
 
 https://youtu.be/jaeTOpCmbLA?si=U0g4pyHOrH8DoXYj - ещё про джанго
+
+https://ctrlzblog.com/how-to-use-the-many-to-many-field-in-your-django-models/    -  many to many
