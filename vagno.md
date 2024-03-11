@@ -7,6 +7,8 @@ https://docs.djangoproject.com/en/1.11/ref/models/fields/#foreignkey   -ForeignK
 
 https://docs.djangoproject.com/en/1.11/ref/models/fields/#onetoonefield  -OneToOneField
 
+https://youtu.be/XPOeKYGekNo?si=D2R-IGd_9rZ3LyrI  - ролик по отношению onetoone !!!
+
 ////////////////////////////////////////////////////////////////////
 
 Гораздо более простой вариант ответа @ s29:
