@@ -8,6 +8,8 @@ https://docs.djangoproject.com/en/1.11/ref/models/fields/#foreignkey   -ForeignK
 https://docs.djangoproject.com/en/1.11/ref/models/fields/#onetoonefield  -OneToOneField
 
 https://youtu.be/XPOeKYGekNo?si=D2R-IGd_9rZ3LyrI  - ролик по отношению onetoone !!!
+https://www.youtube.com/watch?v=Fzh9S8B7yhQ - reverse_lazy   понятное объяснение.(но не актуально)
+https://youtu.be/mgldr5PIMqU?si=8J9bIZZofg7JWkhe   - права доступа!!! - интересно доходчиво !!!  обязательно попробовать ограничить доступ и организовать для суперпользователя возможность  назначать , менять права
 
 ////////////////////////////////////////////////////////////////////
 
