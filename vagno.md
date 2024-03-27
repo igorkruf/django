@@ -11,6 +11,8 @@ https://youtu.be/XPOeKYGekNo?si=D2R-IGd_9rZ3LyrI  - ролик по отноше
 
 https://www.youtube.com/watch?v=Fzh9S8B7yhQ - reverse_lazy   понятное объяснение.(но не актуально)
 
+https://sky.pro/wiki/html/sozdanie-izmenyaemykh-html-elementov-na-chistom-java-script/?ysclid=lua57dss8d169964360  -изменение размеров блоков перетаскиванием мышкой
+
 https://youtu.be/mgldr5PIMqU?si=8J9bIZZofg7JWkhe   - права доступа!!! - интересно доходчиво !!!  обязательно попробовать ограничить доступ и организовать для суперпользователя возможность  назначать , менять 
 права
 https://django-treebeard.readthedocs.io/en/latest/al_tree.html#module-treebeard.al_tree  Древовидная структура (в частности меню)
