@@ -15,7 +15,9 @@ https://sky.pro/wiki/html/sozdanie-izmenyaemykh-html-elementov-na-chistom-java-s
 
 https://youtu.be/mgldr5PIMqU?si=8J9bIZZofg7JWkhe   - права доступа!!! - интересно доходчиво !!!  обязательно попробовать ограничить доступ и организовать для суперпользователя возможность  назначать , менять 
 права
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 https://django-treebeard.readthedocs.io/en/latest/al_tree.html#module-treebeard.al_tree  Древовидная структура (в частности меню)
+https://django-mptt.readthedocs.io/en/latest/admin.html  -это мне показалось доступней
 
 ////////////////////////////////////////////////////////////////////
 
