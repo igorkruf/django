@@ -17,6 +17,8 @@ https://youtu.be/mgldr5PIMqU?si=8J9bIZZofg7JWkhe   - права доступа!!
 права
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 https://django-treebeard.readthedocs.io/en/latest/al_tree.html#module-treebeard.al_tree  Древовидная структура (в частности меню)
+
+
 https://django-mptt.readthedocs.io/en/latest/admin.html  -это мне показалось доступней
 
 ////////////////////////////////////////////////////////////////////
