@@ -25,8 +25,12 @@ class MainPage(View):
         context['data_x']=data_x #Список значений по оси X для LINE графика
         for series_item in self.LIST_GOTOVNOST:
             series_dict={}
+            series_dict['name']=series_item['name']
             series_dict['type']='line'
             series_dict['data']=list(series_item.values())[1:]
+            series_dict['label']= {}
+            series_dict['label']['show'] = 'true'
+            
             list_series.append(series_dict)
         context['data_x']=data_x
         context['list_series']=list_series

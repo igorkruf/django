@@ -56,12 +56,27 @@ let lineGraf=(containerSelector, dataX, listDataY)=>{
   });
 
   let option={
+    // tooltip: {
+    //   alwaysShowContent: true,
+    //   trigger: 'axis',
+    //   // alwaysShowContent: false ,
+    //   axisPointer: { 
+        
+    //     type: 'cross'
+    //    }
+    // },
+    
+    legend: {},
     xAxis:{
+      
       type:'category',
       data:dataX
     },
-    yAxis:{},
+    yAxis:{
+      
+    },
     series: listDataY, 
+
   };
   myChart.setOption(option);
   return myChart;
