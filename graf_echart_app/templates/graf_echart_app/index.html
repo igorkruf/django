@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echarts</title>
+    <script src="{% static 'graf_echart_app/echarts.min.js'%}"></script>
+    <script src="{% static 'graf_echart_app/graf.js' %}"></script>
+</head>
+<body>
+    
+    {% block form %}
+    
+    {% endblock form %}
+    <div id="main" style="width:100%; height:300px;"></div>
+    <script type="text/javascript">
+        // Initialize the echarts instance based on the prepared dom
+        let ggg=lineGraf( '#main', {{data_x|safe}}, {{list_series|safe}});
+        
+      </script>
+</body>
+</html>
