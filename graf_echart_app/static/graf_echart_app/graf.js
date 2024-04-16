@@ -49,12 +49,12 @@ let barGraf= (container_selector, dataX, dataY)=>{
         return myChart;
 }
 
-let lineGraf=(containerSelector, dataX, listDataY)=>{
+let lineGraf=(containerSelector, sources)=>{
   let myChart = echarts.init(document.querySelector(containerSelector));
   window.addEventListener('resize', function() {
    myChart.resize();
   });
-
+  console.log(sources);
   let option={
     // tooltip: {
     //   alwaysShowContent: true,
@@ -67,15 +67,22 @@ let lineGraf=(containerSelector, dataX, listDataY)=>{
     // },
     
     legend: {},
+    dataset:{
+      source:sources
+    },
     xAxis:{
       
       type:'category',
-      data:dataX
+     
     },
     yAxis:{
       
     },
-    series: listDataY, 
+    series: [
+      { type: 'line', seriesLayoutBy: 'row' },
+      { type: 'line', seriesLayoutBy: 'row' },
+      { type: 'line', seriesLayoutBy: 'row' },
+    ], 
 
   };
   myChart.setOption(option);

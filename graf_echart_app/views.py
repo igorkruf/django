@@ -19,23 +19,29 @@ class MainPage(View):
 
     def get(self, req, *args, **kwargs):
         context={}
-        list_series=[]
-        data_x=list(self.LIST_GOTOVNOST[0].keys())[1:]
-        print(data_x)
-        context['data_x']=data_x #Список значений по оси X для LINE графика
-        for series_item in self.LIST_GOTOVNOST:
-            series_dict={}
-            series_dict['name']=series_item['name']
-            series_dict['type']='line'
-            series_dict['data']=list(series_item.values())[1:]
-            series_dict['label']= {}
-            series_dict['label']['show'] = 'true'
-            
-            list_series.append(series_dict)
-        context['data_x']=data_x
-        context['list_series']=list_series
+        list_sources=[]
+        data_header=list(self.LIST_GOTOVNOST[0].keys())
+        list_sources.append(data_header)
+        print(list_sources)
+        for list_series_item in self.LIST_GOTOVNOST:
+            list_series_data=list(list_series_item.values())
+            list_sources.append(list_series_data)
+        print(list_sources)
 
-        
+        # context['data_x']=data_x #Список значений по оси X для LINE графика
+        # for series_item in self.LIST_GOTOVNOST:
+        #     series_dict={}
+        #     series_dict['name']=series_item['name']
+        #     series_dict['type']='line'
+        #     series_dict['data']=list(series_item.values())[1:]
+        #     series_dict['label']= {}
+        #     series_dict['label']['show'] = 'true'
+            
+        #     list_series.append(series_dict)
+        # context['data_x']=data_x
+        # context['list_series']=list_series
+
+        context['list_sources']=list_sources
         return render(req, 'graf_echart_app/index.html', context)
     
 
