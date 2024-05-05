@@ -1,5 +1,4 @@
-my_overrides.py
-
+'''
 from django_sso.sso_service.backend import EventAcceptor, acceptor
 from typing import * 
 # В случае, когда вам нужно что-то сделать после деаутентификации 
@@ -30,3 +29,4 @@ class  MyEventAcceptor ( EventAcceptor ):
         print(user_identities)
         print(fields)
         super().update_fields(user_identities, fields)
+'''
