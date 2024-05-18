@@ -21,6 +21,8 @@ https://django-treebeard.readthedocs.io/en/latest/al_tree.html#module-treebeard.
 
 https://django-mptt.readthedocs.io/en/latest/admin.html  -это мне показалось доступней
 
+https://django-tree-queries.readthedocs.io/en/latest/ - работа с древовидной структурой- вроде как этот вариант тоже приемлем!!! даже лучше чем остальные
+
 ////////////////////////////////////////////////////////////////////
 
 Гораздо более простой вариант ответа @ s29:
