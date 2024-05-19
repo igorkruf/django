@@ -169,7 +169,55 @@ class TreeQuerySet(models.QuerySet):
         return queryset
 
 ```
+```
+class TreeNode(models.Model):
+    parent = TreeNodeForeignKey(
+        "self",
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+        verbose_name=_("parent"),
+        related_name="children",
+    )
 
+    objects = TreeQuerySet.as_manager()
+
+    class Meta:
+        abstract = True
+
+    def ancestors(self, **kwargs):
+        """
+        Возвращает всех предков текущего узла
+        Подробности и необязательные аргументы см. в разделе `TreeQuerySet.ancestors`.
+        """
+        return self.__class__._default_manager.ancestors(self, **kwargs)
+
+    def descendants(self, **kwargs):
+        """
+        Возвращает всех потомков текущего узла
+        Подробности и необязательные аргументы см. в разделе `TreeQuerySet.descendants`.
+        """
+        return self.__class__._default_manager.descendants(self, **kwargs)
+
+    def clean(self):
+        """
+        Выдает ошибку проверки, если сохранение этого экземпляра приведет к циклам
+        в древовидной структуре
+        """
+        super().clean()
+        if (
+            self.parent_id
+            and self.pk
+            and (
+                self.__class__._default_manager.ancestors(
+                    self.parent_id, include_self=True
+                )
+                .filter(pk=self.pk)
+                .exists()
+            )
+        ):
+            raise ValidationError(_("A node cannot be made a descendant of itself."))
+```
 
 
 ////////////////////////////////////////////////////////////////////
