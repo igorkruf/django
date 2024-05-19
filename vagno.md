@@ -53,7 +53,122 @@ descendants = node.descendants(include_self=True)
 # Временно переопределить порядок по братьям и сестрам.
 nodes = Node.objects.order_siblings_by("id")
 ```
+```
+class TreeQuerySet(models.QuerySet):
+    def with_tree_fields(self, tree_fields=True):  # noqa: FBT002
+        """
+        Запрашивает древовидные поля в этом наборе запросов
+        Введите `False`, чтобы вернуться к набору запросов без древовидных полей.
+        """
+        if tree_fields:
+            self.query.__class__ = TreeQuery
+            self.query._setup_query()
+        else:
+            self.query.__class__ = Query
+        return self
 
+    def without_tree_fields(self):
+        """
+        Не запрашивает никаких древовидных полей в этом наборе запросов
+        """
+        return self.with_tree_fields(tree_fields=False)
+
+    def order_siblings_by(self, *order_by):
+        """
+        Устанавливает атрибут sibling_order древовидного запроса
+        Передает имена полей модели в виде списка строк
+        чтобы упорядочить три родственных элемента по этим полям модели
+        """
+        self.query.__class__ = TreeQuery
+        self.query._setup_query()
+        self.query.sibling_order = order_by
+        return self
+
+    def tree_filter(self, *args, **kwargs):
+        """
+	Добавляет фильтр к древовидному запросу rank_table_query
+        Принимает те же аргументы, что и Django QuerySet .filter()
+        """
+        self.query.__class__ = TreeQuery
+        self.query._setup_query()
+        self.query.rank_table_query = self.query.rank_table_query.filter(
+            *args, **kwargs
+        )
+        return self
+
+    def tree_exclude(self, *args, **kwargs):
+        """
+        Добавляет фильтр к древовидному запросу rank_table_query
+        Принимает те же аргументы, что и Django QuerySet .exclude()
+        """
+        self.query.__class__ = TreeQuery
+        self.query._setup_query()
+        self.query.rank_table_query = self.query.rank_table_query.exclude(
+            *args, **kwargs
+        )
+        return self
+
+    def tree_fields(self, **tree_fields):
+        self.query.__class__ = TreeQuery
+        self.query._setup_query()
+        self.query.tree_fields = tree_fields
+        return self
+
+    @classmethod
+    def as_manager(cls, *, with_tree_fields=False):
+        manager_class = TreeManager.from_queryset(cls)
+        # Используется только при деконструкции:
+        manager_class._built_with_as_manager = True
+        # Установите атрибут для класса, а не для экземпляра, чтобы автоматическое создание подкласса
+        #, используемое, например, для отношений, также обнаруживало этот атрибут
+        #.
+        manager_class._with_tree_fields = with_tree_fields
+        return manager_class()
+
+    as_manager.queryset_only = True
+
+    def ancestors(self, of, *, include_self=False):
+        """
+        Возвращает предков данного узла, упорядоченных от корня дерева
+        к более глубоким уровням, необязательно включая сам узел
+        """
+        if not hasattr(of, "tree_path"):
+            of = self.with_tree_fields().get(pk=pk(of))
+
+        ids = of.tree_path if include_self else of.tree_path[:-1]
+        return (
+            self.with_tree_fields()  # Поля дерева задач не являются строго обязательными
+            .filter(pk__in=ids)
+            .extra(order_by=["__tree.tree_depth"])
+        )
+
+    def descendants(self, of, *, include_self=False):
+        """
+        Возвращает потомков данного узла в порядке возрастания глубины, необязательно
+        включая сам узел и начиная с него
+        """
+        connection = connections[self.db]
+        if connection.vendor == "postgresql":
+            queryset = self.with_tree_fields().extra(
+                where=["%s = ANY(__tree.tree_path)"],
+                params=[self.model._meta.pk.get_db_prep_value(pk(of), connection)],
+            )
+
+        else:
+            queryset = self.with_tree_fields().extra(
+                # ОБРАТИТЕ ВНИМАНИЕ! Представление tree_path не является частью API.
+                where=[
+		    # XXX Это может быть небезопасно для некоторых типов полей первичного ключа.
+                    # Это, безусловно, безопасно для целых чисел.
+                    f'instr(__tree.tree_path, "{SEPARATOR}{self.model._meta.pk.get_db_prep_value(pk(of), connection)}{SEPARATOR}") <> 0'
+                ]
+            )
+
+        if not include_self:
+            return queryset.exclude(pk=pk(of))
+        return queryset
+
+```
 
 
 
