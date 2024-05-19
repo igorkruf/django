@@ -20,6 +20,8 @@ https://django-treebeard.readthedocs.io/en/latest/al_tree.html#module-treebeard.
 
 
 https://django-mptt.readthedocs.io/en/latest/admin.html  -это мне показалось доступней
+
+https://tretyakov.net/post/drevovidnye-kategorii-v-django/?ysclid=lwdxm4v7l9873218791  mptt- пример
 ///////////////////////////////////////////////////////////////////////////////////////////
 https://django-tree-queries.readthedocs.io/en/latest/ - работа с древовидной структурой- вроде как этот вариант тоже приемлем!!! даже лучше чем остальные
 https://github.com/feincms/django-tree-queries - github этого решения
