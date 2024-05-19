@@ -20,9 +20,42 @@ https://django-treebeard.readthedocs.io/en/latest/al_tree.html#module-treebeard.
 
 
 https://django-mptt.readthedocs.io/en/latest/admin.html  -это мне показалось доступней
-
+///////////////////////////////////////////////////////////////////////////////////////////
 https://django-tree-queries.readthedocs.io/en/latest/ - работа с древовидной структурой- вроде как этот вариант тоже приемлем!!! даже лучше чем остальные
 https://github.com/feincms/django-tree-queries - github этого решения
+```
+# Базовое использование, полностью игнорирующее древовидную структуру.
+nodes = Node.objects.all()
+
+# Выборка узлов в порядке поиска по глубине. Все узлы будут иметь атрибуты
+# tree_path, tree_ordering и tree_depth.
+nodes = Node.objects.with_tree_fields()
+
+# Извлеките любой узел.
+node = Node.objects.order_by("?").first()
+
+# Выборка прямых дочерних элементов и включение полей дерева. (Родительский внешний ключ
+# указывает related_name="children")
+children = node.children.with_tree_fields()
+
+# Извлеките всех предков, начиная с корня.
+ancestors = node.ancestors()
+
+# Извлеките всех предков, включая self, начиная с корня.
+ancestors_including_self = node.ancestors(include_self=True)
+
+# Извлекаем всех предков, начиная с самого узла.
+ancestry = node.ancestors(include_self=True).reverse()
+
+# Извлеките всех потомков в порядке поиска в глубину, включая self.
+descendants = node.descendants(include_self=True)
+
+# Временно переопределить порядок по братьям и сестрам.
+nodes = Node.objects.order_siblings_by("id")
+```
+
+
+
 
 ////////////////////////////////////////////////////////////////////
 
