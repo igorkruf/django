@@ -4,5 +4,7 @@ https://youtu.be/EotjsvTobso?si=V_8J8hQlRI2YrXOh  Webcademy чекбоксы
 
 https://youtu.be/FYLp706yv28?si=TXI1CeX0yo-W7nrO Webcademy селект(примитив)css
 
+https://youtu.be/Cw6wOZNeqk0?si=ZMkCRwRusGnm3jLx   Webcademy radio 
+
 
 
