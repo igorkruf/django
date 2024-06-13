@@ -14,3 +14,7 @@ dotenv_path =  BASE_DIR / '.env'
 if dotenv_path.exists():
     load_dotenv(dotenv_path)
 ```
+#### Затем для получения значения переменной обращаемся по ключу к словарю os.environ:
+```
+os.environ.get('имя переменной')
+```
