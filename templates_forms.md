@@ -2,6 +2,7 @@
 
 ```
 # templates/form/fields_in_one_column.html
+
 <div class="fields_in_one_column">
         {% for field in form %}
         <div class="form-group">
