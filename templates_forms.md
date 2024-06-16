@@ -122,3 +122,27 @@ class StoriesDelete(PermissionRequiredMixin, LoginRequiredMixin, View):
         return redirect('admin_stories')
 
 ```
+### js подтверждения удаления
+```
+let storiItemLinkDel=document.querySelectorAll('.stori-item__link_del');
+storiItemLinkDel.forEach((elem)=>{
+    elem.addEventListener('click', async function(event){
+        event.preventDefault();
+        console.log(this.dataset.href);
+        let response=await fetch(this.dataset.href);
+        let result= await response.json();
+        console.log(result.template)
+        modalContent.innerHTML=result.template
+        wrapperModal.classList.add('modal__wrapper_visible')
+        // определяем кнопку отмены удаления ... 
+        let confirmationBtnNo= modalContent.querySelector('.confirmation__btn_no');
+        confirmationBtnNo.addEventListener('click', (event)=>{
+            // отменяем действие по умолчанию... просто закрываем модальное окно подтверждения
+            event.preventDefault();
+            wrapperModal.classList.remove('modal__wrapper_visible');
+        })
+
+
+    })
+})
+```
