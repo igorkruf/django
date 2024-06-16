@@ -71,3 +71,54 @@ body, html{
     cursor:pointer;
 }
 ```
+### js появление и скрытие модального окна(см html и css выше)
+```
+console.log('прикрепили скрипты!!!')
+let modalContent=document.querySelector('.modal__content')
+let wrapperModal=document.querySelector('.modal__wrapper');
+// let btnOpenModal=document.querySelector('.btn_modal_visible');
+let btnCloseModal=document.querySelector('.modal__btn-close')
+// закрываем модальное окно по клику по фону за пределами modal
+wrapperModal.addEventListener('click', function(e){
+    if (e.target==this || e.target==btnCloseModal) {
+        wrapperModal.classList.remove('modal__wrapper_visible')
+    }
+})
+```
+
+
+
+### View подтверждения удаления
+```
+# view
+class StoriesDelete(PermissionRequiredMixin, LoginRequiredMixin, View):
+    '''Удаление объявления'''
+
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = {}
+        context["id_stories"] = kwargs['stories_id']
+        return context
+    
+
+    permission_required=["stories_app.delete_stories"]
+
+    def get(self, req, *args, **kwargs):
+        '''Отправляем форму подтверждения удаления'''
+
+        context=self.get_context_data(**kwargs)
+        # Получаем строку url
+        context['action']=req.path 
+        # req передаем что-бы сработал тэг {% csrf_token %} 
+        template=render_to_string('stories_app/fetch/confirmation.html', context, req)
+        return JsonResponse({'template':template})
+        
+    def post(self, req, *args, **kwargs):
+        '''Удаляем запись'''
+
+        try:
+            Stories.objects.get(pk=kwargs['stories_id']).delete()
+        except:
+            print('ошибка при удалении истории')
+        return redirect('admin_stories')
+
+```
