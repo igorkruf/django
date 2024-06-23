@@ -71,7 +71,7 @@ class ToFromTest(ContextMixin, View):
 }
 
 ```
-## scripts.js скрываем nool-tip окно через 2 сек
+## scripts.js скрываем tool-tip окно через 2 сек
 ```
 let toolTip= document.querySelector('.tool-tip');
 if (toolTip.classList.contains("tool-tip_visible")){
