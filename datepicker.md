@@ -1,6 +1,6 @@
 https://www.npmjs.com/package/js-datepicker   - npmjs.com
 
-
+```
 console.log('подключили custom.js');
 let picker = datepicker('.datepicker1', {id:1, onSelect:(instance, date)=>{
     console.log('выбрали дату');
@@ -24,3 +24,4 @@ function getMonday(d) {
     return new Date(d.setDate(diff));
   }
 
+```
