@@ -4,8 +4,8 @@ https://www.npmjs.com/package/js-datepicker   - npmjs.com
 console.log('подключили custom.js');
 let picker = datepicker('.datepicker1', {id:1, onSelect:(instance, date)=>{
     console.log('выбрали дату');
-    let dateManday=getMonday(date)
-    console.log(`Дата понедельника: ${dateManday}`);
+    let dateMonday=getMonday(date)
+    console.log(`Дата понедельника: ${dateMonday}`);
     let dateSunday=getSunday(date)
     console.log(`Дата воскресенья: ${dateSunday}`);
 }, startDay: 1, showAllDates: true,  });
