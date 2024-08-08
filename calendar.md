@@ -15,5 +15,5 @@ from calendar import *
 import locale
 locale.setlocale(locale.LC_ALL, '')
 ```
-
+https://alexpnt.github.io/2017/07/15/django-calendar/    - интересный но не очень
 
