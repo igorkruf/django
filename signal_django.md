@@ -1,4 +1,4 @@
-
+https://habr.com/ru/companies/kokocgroup/articles/826238/   - интересная инфа
 # Это в файле  apps.py приложения
 <code>
     from django.apps import AppConfig
