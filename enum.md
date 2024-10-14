@@ -13,3 +13,10 @@ class TrainingPeriod(ExtendedEnum):
     WINTER=(1, 'Зима')
     SUMMER=(2,'Лето')
 ```
+```
+from enum_2 import TrainingPeriod
+
+
+print(TrainingPeriod.select_list())   
+       
+```
