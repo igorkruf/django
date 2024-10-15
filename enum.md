@@ -1,22 +1,35 @@
 ```
-from enum import Enum
-
-
-class ExtendedEnum(Enum):
-
-    @classmethod
-    def select_list(cls):
-        return [(period.value[0], period.value[1]) for period in TrainingPeriod]
-
-
-class TrainingPeriod(ExtendedEnum):
-    WINTER=(1, 'Зима')
-    SUMMER=(2,'Лето')
+class  Entry ( models . Model ): 
+    LIVE_STATUS  =  1 
+    DRAFT_STATUS  =  2 
+    HIDDEN_STATUS  =  3 
+    STATUS_CHOICES  =  ( 
+        ( LIVE_STATUS ,  'Live' ), 
+        ( DRAFT_STATUS ,  'Draft' ), 
+        ( HIDDEN_STATUS ,  'Hidden' ), 
+    ) 
+    # ...здесь есть еще несколько полей... 
+    status  =  models . IntegerField ( choices = STATUS_CHOICES ,  default = LIVE_STATUS 
 ```
+
+Однако мы можем просто определить набор констант:
+
 ```
-from enum_2 import TrainingPeriod
+LIVE_STATUS  =  1 
+DRAFT_STATUS  =  2 
+HIDDEN_STATUS  =  3
+```
+И отсюда мы можем переопределить STATUS_CHOICESкортеж, чтобы он опирался на эти константы:
 
+```
+STATUS_CHOICES  =  ( 
+    ( LIVE_STATUS ,  'В прямом эфире' ), 
+    ( DRAFT_STATUS ,  'Черновик' ), 
+    ( HIDDEN_STATUS ,  'Скрытый' ), 
+)
+```
+И все, кому требуется фильтровать текущие записи, может использовать его:
 
-print(TrainingPeriod.select_list())   
-       
+```
+live_entries = Entry.objects.filter(status=LIVE_STATUS)
 ```
