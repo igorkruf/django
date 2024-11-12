@@ -97,6 +97,13 @@ def test_recive(sender, instance, **kwargs):
 
 https://russianblogs.com/article/5984705908/ - listView, detailView, ...
 
+![alt text](https://habrastorage.org/r/w1560/files/688/052/4d1/6880524d12ff4f689c0a84d1302c5715.png)      
+
+chosen_obj = next((obj for obj in your_objects if getattr(obj, 'my_attr', None) == target_value), None)
+
+chosen_objects = [obj for obj in your_objects if obj.my_attr == target_value]
+
+chosen_obj = next((value for key, value in object_dict.items() if value.my_attr == target_value), None)
 
 
   
