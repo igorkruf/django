@@ -4,7 +4,8 @@
 
 стр 376 - для обработки клика при выборе занятия во время составления расписания
 
--добавил скрытое поле в форму добавления занятия (lesson_from_cm)
+### lessons_plan/forms.py 
+-добавил скрытое поле lesson_from_cm в форму (AddLessonsPlanForm)
 
 ```
 class AddLessonPlanForm(forms.ModelForm):
@@ -50,4 +51,29 @@ class AddLessonPlanForm(forms.ModelForm):
         }
 
 
+```
+
+### lessons_plan/views.py 
+
+в этом классе надо получить list где в элементе связать занятия компетен... и плана БП 
+
+```
+class GetListLessonOfTheme(View):
+    '''
+    Список занятий выбранной темы
+    '''
+
+    def get(self, req, *args, **kwargs):
+        context={}
+        context['theme']=Theme.objects.get(pk=kwargs['theme_pk'])
+        print('\n'*3)
+        print(context['theme'].discipline.number)
+        #список занятий темы из ПБП
+        list_lesson_of_theme_from_pbp=Theme.objects.get(pk=kwargs['theme_pk']).lessons.all()
+        print('список занятий из пбп по данной теме: ', list_lesson_of_theme_from_pbp)
+        list_lesson_of_theme_from_cm=CompetencyLesson.objects.filter(discipline_code=context['theme'].discipline.number, theme_code=context['theme'].number)
+        print('список занятий из компетентосной модели по данной теме: ', list_lesson_of_theme_from_cm)
+
+        list_lesson_of_theme=render_to_string('lessons_plan/fetch/select_lesson_of_theme.html', context, req)
+        return JsonResponse({"list_lesson_of_theme":list_lesson_of_theme})
 ```
