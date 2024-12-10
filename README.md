@@ -105,5 +105,28 @@ chosen_objects = [obj for obj in your_objects if obj.my_attr == target_value]
 
 chosen_obj = next((value for key, value in object_dict.items() if value.my_attr == target_value), None)
 
+```
+<script>
+      let sel = document.querySelector('select');
+      let inp = document.querySelector('input');
+      let onClickB;
+      sel.addEventListener('change', (e)=>{
+        inp.removeEventListener('click', onClickB);
+          if (e.target.value==1){
+          onClickB = ()=>{
+            console.log('1')
+          }
+         } else {
+          onClickB = ()=>{
+              console.log("2");
+          }
+        };
+        
+        inp.addEventListener('click', onClickB);
+        });
+        
+            
 
+    </script>
+```
   
