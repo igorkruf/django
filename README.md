@@ -130,3 +130,13 @@ chosen_obj = next((value for key, value in object_dict.items() if value.my_attr 
     </script>
 ```
   
+```
+let arrFilter =['a','b','d'];
+      let objFilter = {'a': 'Буква а', 'c':'Буква с', 'd':'Буква Д'}
+      let itogObj={};
+      Object.entries(objFilter).forEach(item =>{
+          if (arrFilter.includes(item[0])){
+          itogObj[item[0]]=item[1];
+      }  
+      })
+```
