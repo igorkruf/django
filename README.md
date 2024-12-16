@@ -1,4 +1,4 @@
-
+AttributeError: 'JournalPlatoon' object has no attribute 'get_students_from_journal'
 
 
 Получаем значение любой кукки на js
