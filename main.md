@@ -22,3 +22,16 @@ for user, val in final.items():
 
 
 ```
+```
+list_tuple_module_m = [("M1", {1:0, 2: 33, 3:89}), ("M2", {1:34, 2: 33, 3:89})]
+list_tuple_module_p = [{1:21, 3:10}]
+
+for tuple_module_m in list_tuple_module_m:
+    for key_m,val_m in tuple_module_m[1].items():
+        for key_p, val_p in list_tuple_module_p[0].items():
+            if key_p==key_m:
+               tuple_module_m[1][key_m]= val_p 
+
+
+print(list_tuple_module_m)
+```
