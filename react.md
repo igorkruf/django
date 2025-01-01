@@ -3,3 +3,5 @@ https://habr.com/ru/companies/ruvds/articles/445276/   - useEffect
 https://doka.guide/js/intersection-observer/?ysclid=m36yg23sxf187984357  - про intersectionObserver
 
 https://utyatnishna.ru/info/132044/can-i-use-socketio-with-django   как подружить socket io и django
+
+https://penpot.app/design  - бесплатный аналог figma
