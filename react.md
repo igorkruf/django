@@ -5,3 +5,5 @@ https://doka.guide/js/intersection-observer/?ysclid=m36yg23sxf187984357  - пр�
 https://utyatnishna.ru/info/132044/can-i-use-socketio-with-django   как подружить socket io и django  
 
 https://penpot.app/design  - бесплатный аналог figma
+
+https://stackoverflow.com/questions/51452593/how-to-add-react-components-to-existing-django-project     - встроить в приложение django React
