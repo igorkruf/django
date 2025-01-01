@@ -7,3 +7,7 @@ https://utyatnishna.ru/info/132044/can-i-use-socketio-with-django   как по�
 https://penpot.app/design  - бесплатный аналог figma
 
 https://stackoverflow.com/questions/51452593/how-to-add-react-components-to-existing-django-project     - встроить в приложение django React
+
+
+https://github.com/protibimbok/django-vite-plugin?ysclid=m5e3h5akru226851176    - vite.config   с django
+
