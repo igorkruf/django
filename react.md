@@ -11,3 +11,7 @@ https://stackoverflow.com/questions/51452593/how-to-add-react-components-to-exis
 
 https://github.com/protibimbok/django-vite-plugin?ysclid=m5e3h5akru226851176    - vite.config   с django
 
+https://gist.github.com/lucianoratamero/7fc9737d24229ea9219f0987272896a2?permalink_comment_id=4464562 - ещё
+
+
+
