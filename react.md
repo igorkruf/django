@@ -14,4 +14,7 @@ https://github.com/protibimbok/django-vite-plugin?ysclid=m5e3h5akru226851176    
 https://gist.github.com/lucianoratamero/7fc9737d24229ea9219f0987272896a2?permalink_comment_id=4464562 - ещё
 
 
+https://www.techiediaries.com/django-cors/  - про CORS и DRF
+
+
 
