@@ -16,5 +16,7 @@ https://gist.github.com/lucianoratamero/7fc9737d24229ea9219f0987272896a2?permali
 
 https://www.techiediaries.com/django-cors/  - про CORS и DRF
 
+https://reactrouter.docschina.org/routers/create-browser-router/  реакт роутер
+
 
 
