@@ -18,5 +18,7 @@ https://www.techiediaries.com/django-cors/  - про CORS и DRF
 
 https://reactrouter.docschina.org/routers/create-browser-router/  реакт роутер
 
+https://blog.logrocket.com/using-react-intersection-observer-create-dynamic-header/  -intersectionObserver 
+
 
 
