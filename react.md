@@ -20,5 +20,71 @@ https://reactrouter.docschina.org/routers/create-browser-router/  реакт р�
 
 https://blog.logrocket.com/using-react-intersection-observer-create-dynamic-header/  -intersectionObserver 
 
+```
+
+function App() {
+ 
+useEffect(()=>{
+  let listBlocks = document.querySelectorAll('.block');
+  let options = {
+       threshold:[0]
+      };
+  let callback = (entries)=>{
+    entries.forEach(entry => {
+    if (entry.isIntersecting){
+            console.log('есть вхождение');
+            observer.unobserve(entry.target);
+     }
+        });  
+     };
+        
+  let observer = new IntersectionObserver(callback, options);
+  listBlocks.forEach((block)=>{observer.observe(block);});
+
+},[]) 
+//  let options = {
+//   threshold:[0]
+//  }
+
+//  let callback = (entries)=>{
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting){
+//       console.log(entry);
+//     }
+    
+//   });
+
+//  };
+//  let observer = new IntersectionObserver(callback, options);
+
+
+//  let listBlocks = document.querySelectorAll('.block');
+//  listBlocks.forEach((block)=>{
+//   observer.observe(block);
+//  })
+
+ 
+  return <>
+    
+    <div className="block__wrapper">
+      <div className="block">1</div>              
+      <div className="block">2</div>
+      <div className="block">3</div>
+      <div className="block">4</div>              
+      <div className="block">5</div>
+      <div className="block">6</div>                            
+    </div>
+    
+  
+    
+    
+    </>
+    
+    
+};
+
+export default App
+```
+
 
 
