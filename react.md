@@ -86,5 +86,10 @@ useEffect(()=>{
 export default App
 ```
 
-https://draftjs.org/     - WISUALN REDACTOR REACT
+https://draftjs.org/     - WISUALN REDACTOR REACT к стати можно попробовать tiny mce
+
+
+```
+https://clubmate.fi/recursive-react-components - recursiya react
+```
 
