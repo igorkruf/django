@@ -89,6 +89,9 @@ export default App
 https://draftjs.org/     - WISUALN REDACTOR REACT к стати можно попробовать tiny mce
 
 
+https://blog.logrocket.com/build-rich-text-editors-react-draft-js-react-draft-wysiwyg/#:~:text=Draft.js%20is%20a%20rich%20text,hyperlinks%2C%20images%2C%20mentions%2C%20and%20more    про draft.js
+
+
 ```
 https://clubmate.fi/recursive-react-components - recursiya react
 ```
