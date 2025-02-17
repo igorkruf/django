@@ -140,3 +140,18 @@ let arrFilter =['a','b','d'];
       }  
       })
 ```
+
+
+```
+from django.db.models import Count, Sum, Avg, Max, Min
+
+Husband.objects.aggregate(Min("age"), Max("age"))
+Получим словарь:
+{'age__min': 30, 'age__max': 101}
+Husband.objects.aggregate(young=Min("age"), old=Max("age"))
+на выходе получим:
+{'young': 30, 'old': 101}
+Women.objects.filter(pk__gt=2).aggregate(res=Count("cat_id"))
+
+
+```
